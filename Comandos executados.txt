@@ -1,0 +1,15 @@
+Comandos executados: 
+
+mkdir datasets
+
+gcsfuse pos_engdados datasets
+
+hdfs dfs -put *.csv /user/juliana_mikosz/datasets
+
+hdfs dfs -ls /user/juliana_mikosz/datasets
+
+beeline -u jdbc:hive2://localhost:10000/default -n juliana_mikosz@cluster-1aa7-m -d org.apache.hive.jdbc.HiveDriver
+
+create database if not exists vendas comment "Database com informações de clientes, vendas e lojas";
+
+create database if not exists netflix comment "Database com informações de filmes da Netflix";
